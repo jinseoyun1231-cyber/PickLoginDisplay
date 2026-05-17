@@ -45,7 +45,7 @@ class ViewController: UIViewController {
             string: "학교 이메일을 입력해주세요.",
             attributes: [.foregroundColor: UIColor(red: 0x8c/255, green: 0x8a/255, blue: 0x8a/255, alpha: 1)])
         let emailTextField2 = NSAttributedString(
-            string: "                        ")
+            string: "                           ")
         let emailTextField3 = NSMutableAttributedString(
             string: "@dsm.hs.kr",
             attributes: [.foregroundColor: UIColor(red: 0x8c/255, green: 0x8a/255, blue: 0x8a/255, alpha: 1)])
@@ -85,12 +85,39 @@ class ViewController: UIViewController {
         loginPasswordTextField1.leftViewMode = .always
         //비밀번호 전에 공백.
         
+        let changePassword = UIButton(type: .system)
+        changePassword.backgroundColor = .clear
+        let changePassword1 = NSAttributedString(
+            string: "비밀번호 변경",
+            attributes: [
+                .font: UIFont.boldSystemFont(ofSize: 14),
+                .foregroundColor: UIColor(red: 0x96/255, green: 0x50/255, blue: 0xfa/255, alpha: 1),
+                .underlineStyle: NSUnderlineStyle.single.rawValue
+            ])
+        changePassword.setAttributedTitle(changePassword1, for: .normal)
+        //비밀번호 변경 버튼 설정
+        
+        let changePasswordText = UILabel()
+        changePasswordText.text = "비밀번호를 잊어버리셨나요?"
+        changePasswordText.textColor = .black
+        changePasswordText.font = UIFont.boldSystemFont(ofSize: 14)
+        changePasswordText.textColor = UIColor(red: 0x5c/255, green: 0x5a/255, blue: 0x60/255, alpha: 1)
+        //비밀번호 변경 텍스트 설정
+        
+        let eyeClose = UIImageView()
+        eyeClose.image = UIImage(named: "eye-close")
+        eyeClose.contentMode = .scaleAspectFit
+        eyeClose.tintColor = .black
+        
         view.addSubview(pickLogintext1)
         view.addSubview(pickLogintext2)
         view.addSubview(loginEmail)
         view.addSubview(loginEmailTextField1)
         view.addSubview(loginPassword)
         view.addSubview(loginPasswordTextField1)
+        view.addSubview(changePassword)
+        view.addSubview(changePasswordText)
+        view.addSubview(eyeClose)
         //화면에 띄우기
         
         pickLogintext1.translatesAutoresizingMaskIntoConstraints = false
@@ -99,6 +126,10 @@ class ViewController: UIViewController {
         loginEmailTextField1.translatesAutoresizingMaskIntoConstraints = false
         loginPassword.translatesAutoresizingMaskIntoConstraints = false
         loginPasswordTextField1.translatesAutoresizingMaskIntoConstraints = false
+        changePassword.translatesAutoresizingMaskIntoConstraints = false
+        changePasswordText.translatesAutoresizingMaskIntoConstraints = false
+        eyeClose.translatesAutoresizingMaskIntoConstraints = false
+        //자동배치 끄기
         
         NSLayoutConstraint.activate([
             pickLogintext1.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
@@ -122,10 +153,22 @@ class ViewController: UIViewController {
             loginPasswordTextField1.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             loginPasswordTextField1.topAnchor.constraint(equalTo: loginPassword.bottomAnchor, constant: 12),
             loginPasswordTextField1.heightAnchor.constraint(equalToConstant: 40),
+            
+            changePassword.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            changePassword.topAnchor.constraint(equalTo: loginPasswordTextField1.bottomAnchor, constant: 12),
+            changePassword.heightAnchor.constraint(equalToConstant: 17),
+            
+            changePasswordText.topAnchor.constraint(equalTo: loginPasswordTextField1.bottomAnchor, constant: 12),
+            changePasswordText.trailingAnchor.constraint(equalTo: changePassword.leadingAnchor, constant: -4),
+            changePasswordText.heightAnchor.constraint(equalToConstant: 17),
+            
+            eyeClose.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
+            eyeClose.topAnchor.constraint(equalTo: loginPassword.bottomAnchor, constant: 22),
+            eyeClose.heightAnchor.constraint(equalToConstant: 20),
+            eyeClose.widthAnchor.constraint(equalToConstant: 20)
         ])
-        
+        //위치 지정
         
         // Do any additional setup after loading the view.
     }
 }
-
