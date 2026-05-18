@@ -108,6 +108,36 @@ class ViewController: UIViewController {
         eyeClose.image = UIImage(named: "eye-close")
         eyeClose.contentMode = .scaleAspectFit
         eyeClose.tintColor = .black
+        //눈감기 이미지
+        
+        let signupText = UILabel()
+        signupText.text = "PiCK 계정이 없으신가요? "
+        signupText.textColor = UIColor(red: 0x5c/255, green: 0x5a/255, blue: 0x60/255, alpha: 1)
+        signupText.font = UIFont.boldSystemFont(ofSize: 14)
+        //회원가입 텍스트
+        
+        let signupButton = UIButton(type: .system)
+        signupButton.backgroundColor = .clear
+        let signupButton1 = NSAttributedString(
+            string: "회원가입",
+            attributes: [
+                .font: UIFont.boldSystemFont(ofSize: 14),
+                .foregroundColor: UIColor(red: 0x96/255, green: 0x50/255, blue: 0xfa/255, alpha: 1),
+                .underlineStyle: NSUnderlineStyle.single.rawValue
+            ])
+        signupButton.setAttributedTitle(signupButton1, for: .normal)
+        //회원가입버튼
+        
+        let loginButton = UILabel()
+        loginButton.backgroundColor = UIColor(red: 0xe0/255, green: 0xcb/255, blue: 0xfe/255, alpha: 1)
+        loginButton.layer.cornerRadius = 7
+        loginButton.clipsToBounds = true
+        loginButton.textColor = .white
+        loginButton.text = "로그인"
+        loginButton.font = UIFont.boldSystemFont(ofSize: 16)
+        loginButton.textAlignment = .center
+        //로그인 버튼 설정
+        
         
         view.addSubview(pickLogintext1)
         view.addSubview(pickLogintext2)
@@ -118,6 +148,9 @@ class ViewController: UIViewController {
         view.addSubview(changePassword)
         view.addSubview(changePasswordText)
         view.addSubview(eyeClose)
+        view.addSubview(signupText)
+        view.addSubview(signupButton)
+        view.addSubview(loginButton)
         //화면에 띄우기
         
         pickLogintext1.translatesAutoresizingMaskIntoConstraints = false
@@ -129,6 +162,9 @@ class ViewController: UIViewController {
         changePassword.translatesAutoresizingMaskIntoConstraints = false
         changePasswordText.translatesAutoresizingMaskIntoConstraints = false
         eyeClose.translatesAutoresizingMaskIntoConstraints = false
+        signupText.translatesAutoresizingMaskIntoConstraints = false
+        signupButton.translatesAutoresizingMaskIntoConstraints = false
+        loginButton.translatesAutoresizingMaskIntoConstraints = false
         //자동배치 끄기
         
         NSLayoutConstraint.activate([
@@ -165,7 +201,22 @@ class ViewController: UIViewController {
             eyeClose.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             eyeClose.topAnchor.constraint(equalTo: loginPassword.bottomAnchor, constant: 22),
             eyeClose.heightAnchor.constraint(equalToConstant: 20),
-            eyeClose.widthAnchor.constraint(equalToConstant: 20)
+            eyeClose.widthAnchor.constraint(equalToConstant: 20),
+            
+            signupText.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            signupText.topAnchor.constraint(equalTo: changePasswordText.bottomAnchor, constant: 256),
+            signupText.heightAnchor.constraint(equalToConstant: 17),
+            
+            signupButton.leadingAnchor.constraint(equalTo: signupText.trailingAnchor, constant: 4),
+            signupButton.topAnchor.constraint(equalTo: changePasswordText.bottomAnchor, constant: 256),
+            signupButton.heightAnchor.constraint(equalToConstant: 17),
+            
+            loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            loginButton.topAnchor.constraint(equalTo: signupText.bottomAnchor, constant: 12),
+            loginButton.heightAnchor.constraint(equalToConstant: 47),
+            
+            
         ])
         //위치 지정
         
