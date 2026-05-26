@@ -38,7 +38,7 @@ class ViewController: UIViewController {
         loginEmailTextField1.font = UIFont.systemFont(ofSize: 13)
         loginEmailTextField1.borderStyle = .none
         loginEmailTextField1.backgroundColor = UIColor(red: 0xF1/255, green: 0xF1/255, blue: 0xF2/255, alpha: 1)
-        loginEmailTextField1.layer.cornerRadius = 7
+        loginEmailTextField1.layer.cornerRadius = 8
         //이메일 입력창 설정
         
         let emailTextField1 = NSAttributedString(
@@ -57,7 +57,7 @@ class ViewController: UIViewController {
         
         loginEmailTextField1.attributedPlaceholder = emailTextField
         // 중간에 공백 넣기
-        
+            
         let emailPaddingView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: 0))
         loginEmailTextField1.leftView = emailPaddingView
         loginEmailTextField1.leftViewMode = .always
@@ -74,7 +74,8 @@ class ViewController: UIViewController {
         loginPasswordTextField1.font = UIFont.systemFont(ofSize: 13)
         loginPasswordTextField1.borderStyle = .none
         loginPasswordTextField1.backgroundColor = UIColor(red: 0xF1/255, green: 0xF1/255, blue: 0xF2/255, alpha: 1)
-        loginPasswordTextField1.layer.cornerRadius = 7
+        loginPasswordTextField1.layer.cornerRadius = 8
+        loginPasswordTextField1.isSecureTextEntry = true
         loginPasswordTextField1.attributedPlaceholder = NSAttributedString(
             string: "비밀번호를 입력해주세요.",
             attributes: [.foregroundColor: UIColor(red: 0x8c/255, green: 0x8a/255, blue: 0x8a/255, alpha: 1)])
@@ -130,10 +131,10 @@ class ViewController: UIViewController {
         
         let loginButton = UILabel()
         loginButton.backgroundColor = UIColor(red: 0xe0/255, green: 0xcb/255, blue: 0xfe/255, alpha: 1)
-        loginButton.layer.cornerRadius = 7
+        loginButton.layer.cornerRadius = 8
         loginButton.clipsToBounds = true
         loginButton.textColor = .white
-        loginButton.text = "로그인"
+        loginButton.text = "로그인하기"
         loginButton.font = UIFont.boldSystemFont(ofSize: 16)
         loginButton.textAlignment = .center
         //로그인 버튼 설정
@@ -221,5 +222,6 @@ class ViewController: UIViewController {
         //위치 지정
         
         // Do any additional setup after loading the view.
+        
     }
 }
