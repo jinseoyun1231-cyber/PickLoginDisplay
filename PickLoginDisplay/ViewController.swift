@@ -139,6 +139,9 @@ class ViewController: UIViewController {
         loginButton.textAlignment = .center
         //로그인 버튼 설정
         
+        loginEmailTextField1.addAction(UIAction(handler: { [weak self] _ in
+            loginEmailTextField1.text = loginEmailTextField1.text?.lowercased()
+        }), for: UIControl.Event.editingChanged)
         
         view.addSubview(pickLogintext1)
         view.addSubview(pickLogintext2)
